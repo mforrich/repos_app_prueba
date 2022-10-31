@@ -1,7 +1,7 @@
-server:
-  port: 8091
+server:  port: 8091
 
-spring:  application:    name: servicio.prestamo
+spring:
+  application:    name: servicio.prestamo
   datasource:    driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/prestamos
     username: postgres
@@ -15,13 +15,13 @@ spring:  application:    name: servicio.prestamo
       connection-timeout: 30000
   jpa:
     properties:      hibernate:
-        ddl-auto:   update
+        ddl-auto: udpate
         format-sql: true
         jdbc:
           lob:
             non-contextual-creation: true
-          temp:
-            use-jdbc-metadata-defaults: false
+        temp:
+          use_jdbc_metadata_defaults: false
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -34,9 +34,9 @@ eureka:
   client:
     service-url: 
       default-zone: http://localhost:8761/eureka
-    instance:
-      status-page-url-path: /infoLibros
-      health-check-url-path: /healthLibro
+    instances:
+      status-page-url-path: /infoPrestamos
+      health-check-url-path: /healthPrestamos
 
 management:
   endpoints:
