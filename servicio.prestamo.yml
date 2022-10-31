@@ -21,7 +21,7 @@ spring:  application:    name: servicio.prestamo
           lob:
             non-contextual-creation: true
           temp:
-            use_jdbc_metadata_defaults: false
+            use-jdbc-metadata-defaults: false
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
