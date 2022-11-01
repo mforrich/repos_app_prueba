@@ -1,0 +1,41 @@
+server:
+  port: 8090
+ 
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/libros
+    username: postgres
+    password: kurama86
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 200000
+      connectionTimeout: 30000
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: update
+        formatSql: true
+        jdbc:
+          lob:
+            non-contextual-creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+    
+    
+eureka:
+  client:
+    service-url: 
+      default-zone: http://localhost:8761/eureka
+    instance:
+      status-page-url-path: /infoLibros
+      health-check-url-path: /healthLibro
+      
