@@ -42,5 +42,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream, info, health
+        include: hystrix.stream, info, health        hystrix:  command:    default:      circuitBreaker:        errorThresholdPercentage: 25    getCustomerOrderDetails:      execution:        isolation:          thread:            timeoutInMilliseconds: 3050    getCustomerProductRecommendation:      execution:        isolation:          thread:            timeoutInMilliseconds: 6500
         
