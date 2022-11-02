@@ -1,0 +1,44 @@
+server:  port: 7777
+
+spring:
+  datasource:    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/authentication
+    username: postgres
+    password: kurama86
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      pool-name: SpringBootJPAHikariCP
+      max-lifetime: 200000
+      connection-timeout: 30000
+  jpa:
+    properties:      hibernate:
+        ddl-auto: none
+        format-sql: true
+        jdbc:
+          lob:
+            non-contextual-creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: false  sql:    init:      mode: never
+    
+    
+      
+eureka:
+  client:
+    service-url: 
+      default-zone: http://localhost:8761/eureka
+    instances:
+      status-page-url-path: /infoaAuth
+      health-check-url-path: /healthAuth
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, info, healthconfig:  security:    oauth:      jwt:        key: 123456      client:        id: app        secret: HmlyChn123        
